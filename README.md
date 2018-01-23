@@ -1,2 +1,2 @@
-# AdaptiveHuffmanGo
-Implementation of Adaptive Huffman Coding using trees
+# SearchTree
+Implementation of a search tree in Go
