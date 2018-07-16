@@ -4,9 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"search_tree/tree"
 	"strings"
-
-	. "./tree"
 )
 
 func main() {
@@ -18,7 +17,7 @@ func main() {
 	words := strings.Split(input, " ")
 
 	// Create tree
-	root := CreateNode()
+	root := tree.CreateNode()
 
 	for _, word := range words {
 		root.AddWord(word)
