@@ -1,4 +1,5 @@
-GET     /                                       App.Create
+GET     /                                       App.DataPage
+POST    /                                       App.Data
 GET     /search                                 App.SearchPage
 POST    /search                                 App.Search
 GET     /favicon.ico                            404
