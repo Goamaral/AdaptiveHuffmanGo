@@ -1,0 +1,21 @@
+{{template "header.html" .}}
+
+<div class="hero">
+  <div class="hero-body">
+    <div class="container">
+        <p class="title">Search results</p>
+  
+        {{if .has_results}}
+            <ul>
+                {{range .suggestions}}
+                    <li>{{.}}</li>
+                {{end}}
+            </ul>
+        {{else}}
+            <p>No results were found!</p>
+        {{end}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

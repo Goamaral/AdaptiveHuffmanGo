@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"search_tree/tree"
+	"SearchTree/tree"
 	"strings"
 
 	"github.com/revel/revel"
@@ -14,7 +14,7 @@ type App struct {
 var Root *tree.Node
 
 func (c App) DataPage() revel.Result {
-
+	return c.Render()
 }
 
 func (c App) Data() revel.Result {
@@ -22,7 +22,7 @@ func (c App) Data() revel.Result {
 		Root = tree.CreateNode()
 	}
 
-	input := c.Params.Query.Get("data")
+	input := c.Params.Get("data")
 
 	words := strings.Split(input, " ")
 
@@ -30,17 +30,28 @@ func (c App) Data() revel.Result {
 		Root.AddWord(word)
 	}
 
-	c.Redirect("/search")
+	return c.Redirect("/search")
 }
 
 func (c App) SearchPage(request string) revel.Result {
-
+	return c.Render()
 }
 
 func (c App) Search(request string) revel.Result {
-	input := c.Params.Query.Get("data")
+	input := c.Params.Get("data")
 
-	suggestions := Root.GetSuggestions(input)
+	var suggestions []string
+	var has_results bool
 
-	c.Render(suggestions)
+	if Root != nil {
+		suggestions = Root.GetSuggestions(input)
+	}
+
+	if len(suggestions) == 0 {
+		has_results = false
+	} else {
+		has_results = true
+	}
+
+	return c.Render(suggestions, has_results)
 }

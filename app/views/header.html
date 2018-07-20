@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
   <head>
-    <title>{{.title}}</title>
+    <title>Search Tree</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap-3.3.6.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
-    <script src="/public/js/jquery-2.2.4.min.js"></script>
-    <script src="/public/js/bootstrap-3.3.6.min.js"></script>
-    {{range .moreStyles}}
-      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
-    {{end}}
-    {{range .moreScripts}}
-      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
-    {{end}}
+    <link href="https://fonts.googleapis.com/css?family=Knewave|Roboto" rel="stylesheet">
   </head>
-  <body>
+
+  <body style="font-family: Roboto">
+    <nav class="navbar is-link" style="padding: 0 5%">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <p style="font-family: Knewave; font-size: 30px">Search Tree</p>
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item" href="/">Insert data</a>
+        <a class="navbar-item" href="/search">Search</a>
+      </div>
+    </nav>
